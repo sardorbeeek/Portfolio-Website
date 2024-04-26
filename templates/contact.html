@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contact Me</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <link rel="stylesheet" href="static/styles.css">
+    </head>
+    <body>
+
+        <section class="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <div class="contact-wrapper">
+                    <div class="contact-form">
+                        <h3>Send us a message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Your Email">
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" placeholder="Your Message"></textarea>
+                            </div>
+                            <button type="submit">Send Messsage</button>
+                        </form>
+
+                        <script>
+                            document.getElementById("contactForm").addEventListener("submit", function(event) {
+                              event.preventDefault(); // Prevent the form from submitting normally
+                            
+                              // Get form data
+                              var formData = new FormData(document.getElementById("contactForm"));
+                              var name = formData.get("name");
+                              var email = formData.get("email");
+                              var message = formData.get("message");
+                            
+                              // Send data to Telegram bot
+                              var telegramBotToken = "6763152386:AAG4gIuhdsAapiGKhSLHfLkkaqkJ7zs937Y";
+                              var telegramChatId = "1823111534";
+                              var text = "Name: " + name + "\nEmail: " + email + "\nMessage: " + message;
+                              var url = "https://api.telegram.org/bot" + telegramBotToken + "/sendMessage?chat_id=" + telegramChatId + "&text=" + encodeURIComponent(text);
+                            
+                              var xhr = new XMLHttpRequest();
+                              xhr.open("POST", url, true);
+                              xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                            
+                              xhr.onreadystatechange = function() {
+                                if (xhr.readyState === 4) {
+                                  if (xhr.status === 200) {
+                                    var response = JSON.parse(xhr.responseText);
+                                    if (response.ok) {
+                                      alert("Message sent successfully!");
+                                    } else {
+                                      alert("Failed to send message. Please try again later.");
+                                    }
+                                  } else {
+                                    alert("An error occurred while sending the message.");
+                                  }
+                                }
+                              };
+                            
+                              xhr.send("chat_id=" + telegramChatId + "&text=" + encodeURIComponent(text));
+                            });
+                            </script>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p><i class="fas fa-phone"></i>+1 123 456 789</p>
+                        <p><i class="fas fa-envelope"></i>info@example.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i>123 Street, City, Country</p>
+                    </div> 
+                </div>
+            </div>
+        </section>
+
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scales=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="class1">
+   
+    <header class="header">
+        <a href="#" class="logo">Sardorbek</a>
+
+        <nav class="navbar">
+            <a href="#" class="active">Home</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+
+    </header>
+
+    <section class="home">
+        <div class="home-content">
+            <h1>Hi, I'm Sardorbek Maxmudov</h1>
+            <h3>Backend Developer</h3>
+            <p>orem Ipsum is simply dummy text of the printing and typesetting industry.
+             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+             when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+             It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+             It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+             and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+            <div class="btn-box">
+                <a href="{{ url_for('hire') }}">Hire Me</a>
+            </div>
+        </div>
+
+        <div class="home-sci">
+            <a href="https://www.linkedin.com/in/daves-john-202b0b2b3/"><i class='bx bxl-linkedin'></i></a>
+            <a href="https://www.instagram.com/aruma_nnnn/"><i class='bx bxl-instagram'></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61550669140897"><i class='bx bxl-facebook-square'></i></a>
+        </div>
+
+        <span class="home-imgHover"></span>
+    </section>
+</body>
+</html>
